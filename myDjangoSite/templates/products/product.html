@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            {% for image_item in product.productimage_set.all %}
+            <img src="{{ image_item.image.url }}" class="img-responsive">
+            {% endfor %}
+        </div>
+        <div class="col-lg-6">
+            <h1 class="text-center">
+                {{ product.name }}
+            </h1>
+            <div>
+
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#description" aria-controls="description" role="tab" data-toggle="tab">Описание</a></li>
+                    <li role="presentation">
+                        <a href="#price" aria-controls="price" role="tab" data-toggle="tab">Цена</a></li>
+                    <li role="presentation">
+                        <a href="#delivery" aria-controls="delivery" role="tab" data-toggle="tab">Доставка</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content product-tabs">
+                    <div role="tabpanel" class="tab-pane fade in active" id="description">{{ product.description }}</div>
+                    <div role="tabpanel" class="tab-pane fade" id="price">{{ product.price}}₽</div>
+                    <div role="tabpanel" class="tab-pane fade" id="delivery">ПЕРВЫЕ 3 ЗАКАЗА ДОСТАВКА БЕСПЛАТНО!</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

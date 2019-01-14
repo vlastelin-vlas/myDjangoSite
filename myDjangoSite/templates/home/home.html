@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% load static %}
+
+
+{% block content %}
+<div class="section-top">
+    <img src="{% static 'img/home/rulets.jpg' %}" class="img-responsive">
+</div>
+<div class="section section1">
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">Новые вкусняхи</h1>
+            {% for product_image in products_images %}
+                {% include 'home/product_item.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="section section2 pizza-container">
+    <div class="container">
+        <div class="row">
+                <h1 class="text-center">По идее тут пицца</h1>
+            {% for product_image in products_images_pizza %}
+                {% include 'home/product_item.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="section section3 other-container">
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">А тут выпечка</h1>
+            {% for product_image in products_images_bakery %}
+                {% include 'home/product_item.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
